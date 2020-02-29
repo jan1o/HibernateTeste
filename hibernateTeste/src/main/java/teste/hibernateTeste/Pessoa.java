@@ -23,6 +23,38 @@ public class Pessoa {
 		this.CPF = CPF;
 		
 	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
+	public int getIdade() {
+		return Idade;
+	}
+
+	public void setIdade(int idade) {
+		Idade = idade;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
 	
 
 	
