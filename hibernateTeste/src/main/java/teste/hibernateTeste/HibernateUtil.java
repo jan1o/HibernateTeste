@@ -27,6 +27,7 @@ public class HibernateUtil {
 			
 			configuration.setProperties(settings);
 			configuration.addAnnotatedClass(Pessoa.class);
+			//configuration.addAnnotatedClass(Aluno.class);
 			
 			
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

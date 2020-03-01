@@ -32,7 +32,8 @@ public class PessoaDAO {
 		//inicia transaction
 		transaction = session.beginTransaction();
 		session.save(pes);
-		transaction.commit(); 	
+		transaction.commit(); 
+		session.close();
 	}
 	public void update(Pessoa pes) {
 		Transaction transaction = null;
