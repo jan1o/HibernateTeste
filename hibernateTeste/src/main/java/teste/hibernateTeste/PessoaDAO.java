@@ -28,7 +28,7 @@ public class PessoaDAO {
 	//metodos do segundo tutorial
 	public void save(Pessoa pes) {
 		Transaction transaction = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory(Pessoa.class).openSession();
 		//inicia transaction
 		transaction = session.beginTransaction();
 		session.save(pes);
@@ -37,7 +37,7 @@ public class PessoaDAO {
 	}
 	public void update(Pessoa pes) {
 		Transaction transaction = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory(Pessoa.class).openSession();
 		transaction = session.beginTransaction();
 		session.saveOrUpdate(pes);
 		transaction.commit();	
@@ -45,7 +45,7 @@ public class PessoaDAO {
 	public Pessoa getPessoa(int ID) {
 		Transaction transaction = null;
 		Pessoa pes = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory(Pessoa.class).openSession();
 		transaction = session.beginTransaction();
 		
 		pes = session.get(Pessoa.class, ID);
@@ -58,11 +58,10 @@ public class PessoaDAO {
 	public List<Pessoa> getAllPessoa() {
 		Transaction transaction = null;
 		List<Pessoa> pes = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory(Pessoa.class).openSession();
 		transaction = session.beginTransaction();
 		
-		pes = session.createQuery("from pessoa").list();
-		
+		pes = session.createQuery("from Pessoa").getResultList();
 		transaction.commit();
 		
 		return pes; 
@@ -71,7 +70,7 @@ public class PessoaDAO {
 	public void deleteId(int ID) {
 		Transaction transaction = null;
 		Pessoa pes = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory(Pessoa.class).openSession();
 		transaction = session.beginTransaction();
 		
 		pes = session.get(Pessoa.class, ID);

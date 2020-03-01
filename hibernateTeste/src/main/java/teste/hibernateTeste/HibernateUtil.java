@@ -13,7 +13,7 @@ import org.hibernate.service.ServiceRegistry;
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 	
-	public static SessionFactory getSessionFactory() {
+	public static SessionFactory getSessionFactory(Object obj) {
 		if(sessionFactory == null) {
 			Configuration configuration = new Configuration();
 			
@@ -26,7 +26,14 @@ public class HibernateUtil {
 			settings.put(Environment.HBM2DDL_AUTO, "update");
 			
 			configuration.setProperties(settings);
-			configuration.addAnnotatedClass(Pessoa.class);
+			
+			if(obj == Pessoa.class) {
+				configuration.addAnnotatedClass(Pessoa.class);
+			}
+			else if(obj == Aluno.class) {
+				configuration.addAnnotatedClass(Aluno.class);
+			}
+			//configuration.addAnnotatedClass(Pessoa.class);
 			//configuration.addAnnotatedClass(Aluno.class);
 			
 			

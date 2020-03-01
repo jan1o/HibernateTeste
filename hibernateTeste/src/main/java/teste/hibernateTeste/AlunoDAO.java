@@ -28,7 +28,7 @@ public class AlunoDAO {
 		//metodos do segundo tutorial
 		public void save(Aluno al) {
 			Transaction transaction = null;
-			Session session = HibernateUtil.getSessionFactory().openSession();
+			Session session = HibernateUtil.getSessionFactory(Aluno.class).openSession();
 			//inicia transaction
 			transaction = session.beginTransaction();
 			session.save(al);
@@ -38,7 +38,7 @@ public class AlunoDAO {
 		}
 		public void update(Aluno al) {
 			Transaction transaction = null;
-			Session session = HibernateUtil.getSessionFactory().openSession();
+			Session session = HibernateUtil.getSessionFactory(Aluno.class).openSession();
 			transaction = session.beginTransaction();
 			session.saveOrUpdate(al);
 			transaction.commit();	
@@ -46,7 +46,7 @@ public class AlunoDAO {
 		public Aluno getAluno(int ID) {
 			Transaction transaction = null;
 			Aluno al = null;
-			Session session = HibernateUtil.getSessionFactory().openSession();
+			Session session = HibernateUtil.getSessionFactory(Aluno.class).openSession();
 			transaction = session.beginTransaction();
 			
 			al = session.get(Aluno.class, ID);
@@ -59,7 +59,7 @@ public class AlunoDAO {
 		public List<Aluno> getAllAluno() {
 			Transaction transaction = null;
 			List<Aluno> al = null;
-			Session session = HibernateUtil.getSessionFactory().openSession();
+			Session session = HibernateUtil.getSessionFactory(Aluno.class).openSession();
 			transaction = session.beginTransaction();
 			
 			al = session.createQuery("from aluno").list();
@@ -72,7 +72,7 @@ public class AlunoDAO {
 		public void deleteId(int ID) {
 			Transaction transaction = null;
 			Aluno al = null;
-			Session session = HibernateUtil.getSessionFactory().openSession();
+			Session session = HibernateUtil.getSessionFactory(Aluno.class).openSession();
 			transaction = session.beginTransaction();
 			
 			al = session.get(Aluno.class, ID);

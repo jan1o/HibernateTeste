@@ -14,6 +14,7 @@ public class Aluno {
 	@Column
 	private String escola;
 	
+	public Aluno() {}
 	public Aluno(String nome, String escola) {
 		this.nome = nome;
 		this.escola = escola;

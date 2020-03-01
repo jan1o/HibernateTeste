@@ -17,6 +17,7 @@ public class Pessoa {
 	@Column
 	private String CPF;
 	
+	public Pessoa() {}
 	public Pessoa(String Nome, int Idade, String CPF) {
 		this.Nome = Nome;
 		this.Idade = Idade;
